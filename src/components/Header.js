@@ -10,8 +10,8 @@ const Header = () => {
 
     const navigation = [
         { text: "HOME", link: "/" },
-        { text: "CAST A VOTE", link: "#" },
-        { text: "PROFILE", link: "#" },
+        { text: "CAST A VOTE", link: "/cast-a-vote" },
+        { text: "PROFILE", link: "/profile" },
         { text: "ABOUT", link: "/about" }
     ]
 
