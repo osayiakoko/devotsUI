@@ -10,13 +10,13 @@ function App() {
     <>
       <Header></Header>
       <main>
-        {sections.map(sec => {
+        {sections.map((sec, index) => {
           return (
-            <Section title={sec.title} color={sec.color} gridCols={sec.gridCols}>
+            <Section key={index} title={sec.title} color={sec.color} gridCols={sec.gridCols}>
               {
-                sec.children.map(child => {
+                sec.children.map((child, index) => {
                   return (
-                    <DetailsCard icon={child.icon} title={child.title} color={child.color} body={child.body}></DetailsCard>
+                    <DetailsCard key={index} icon={child.icon} title={child.title} color={child.color} body={child.body}></DetailsCard>
                   )
                 }) 
               }
