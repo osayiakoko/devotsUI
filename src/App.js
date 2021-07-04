@@ -1,31 +1,28 @@
-import Header from './components/Header';
-import Section from './components/Section';
-import DetailsCard from './components/DetailsCard';
-import CustomerRemarks from './components/CustomerRemarks'
-import sections from './data/sections'
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
     <>
       <Header></Header>
-      <main>
-        {sections.map((sec, index) => {
-          return (
-            <Section key={index} title={sec.title} color={sec.color} gridCols={sec.gridCols}>
-              {
-                sec.children.map((child, index) => {
-                  return (
-                    <DetailsCard key={index} icon={child.icon} title={child.title} color={child.color} body={child.body}></DetailsCard>
-                  )
-                }) 
-              }
-            </Section>
-          )
-        })}
 
-        <CustomerRemarks></CustomerRemarks>
-      </main>
+      <Router>
+        <main>
+          <Switch>
+            <Route path="/" exact>
+              <Home></Home>
+            </Route>
+
+            <Route path="/about">
+              <About></About>
+            </Route>
+          </Switch>
+        </main>
+      </Router>
+
       <Footer></Footer>
     </>
   );
