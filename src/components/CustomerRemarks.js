@@ -10,8 +10,9 @@ const CustomerRemarks = () => {
             <SectionTitle title="Our Customers Says it Best"></SectionTitle>
 
             <div className="md:w-5/6 mx-auto space-y-16">
-                {customers.map(customer => {
+                {customers.map((customer, index) => {
                     return <CustomerRemark 
+                        key={index}
                         remark="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam obcaecati nostrum non inventore laudantium tempora, corrupti cumque voluptatum quos quod voluptate, ipsum eos nihil dolores itaque repudiandae! Quibusdam, reprehenderit repellendus Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste corrupti, quos labore culpa tenetur vel incidunt inventore mollitia, necessitatibus ratione minus quo quas officiis facere quam quaerat eligendi excepturi pariatur!." customer={customer}>
                     </CustomerRemark>
                 })}
