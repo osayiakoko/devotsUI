@@ -3,10 +3,17 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
+import { Link } from 'react-router-dom'
+
 
 const Header = () => {
 
-    const navigation = ['HOME', 'CAST A VOTE', 'PROFILE', 'ABOUT']
+    const navigation = [
+        { text: "HOME", link: "/" },
+        { text: "CAST A VOTE", link: "#" },
+        { text: "PROFILE", link: "#" },
+        { text: "ABOUT", link: "/about" }
+    ]
 
     return (
         <header className="relative h-96">
@@ -20,9 +27,12 @@ const Header = () => {
                         <div className="absolute w-full flex justify-between items-center" >
                             <h2 className="text-2xl">Voter BALLOT</h2>
 
+                            {/* Desktop nav */}
                             <ul className="hidden space-x-3 md:flex">
                                 { navigation.map((item, index) => 
-                                    <li key={index} className="hover:text-blue-500 cursor-pointer">{item}</li>
+                                    <li key={index} className="hover:text-blue-500 cursor-pointer">
+                                        <Link to={item.link}> {item.text} </Link>
+                                    </li>
                                 )}
                             </ul>
 
@@ -33,6 +43,7 @@ const Header = () => {
                                 }
                             </Popover.Button>
 
+                            {/* Mobile nav */}
                             <Transition as={Fragment}
                                 enter="transition duration-200 ease-out"
                                 enterFrom="transform scale-95 opacity-0"
@@ -46,7 +57,7 @@ const Header = () => {
                                 >
                                     <div className="grid">
                                         { navigation.map((item, index) => 
-                                            <a href="#" key={index} className="my-0.5 p-2 rounded hover:bg-gray-300">{item}</a>
+                                            <Link to={item.link} key={index} className="my-0.5 p-2 rounded hover:bg-gray-300">{item.text}</Link>
                                         )}
                                     </div>
                                 </Popover.Panel>

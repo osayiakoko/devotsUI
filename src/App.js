@@ -7,9 +7,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <>
-      <Header></Header>
-
       <Router>
+        <Header></Header>
+        
         <main>
           <Switch>
             <Route path="/" exact>
@@ -21,9 +21,9 @@ function App() {
             </Route>
           </Switch>
         </main>
-      </Router>
 
-      <Footer></Footer>
+        <Footer></Footer>
+      </Router>
     </>
   );
 }
